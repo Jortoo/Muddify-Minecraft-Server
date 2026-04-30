@@ -1,4 +1,4 @@
-package jortoo.muddify.core.mining;
+package jortoo.muddify.core;
 
 import jortoo.muddify.Muddify;
 import org.bukkit.NamespacedKey;

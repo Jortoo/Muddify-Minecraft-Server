@@ -1,8 +1,6 @@
 package jortoo.muddify.core.mining.events;
 
-import jortoo.muddify.Muddify;
-import jortoo.muddify.core.mining.KeyRegistry;
-import org.bukkit.NamespacedKey;
+import jortoo.muddify.core.KeyRegistry;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

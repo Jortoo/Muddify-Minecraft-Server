@@ -1,6 +1,11 @@
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\KeyRegistry.java
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\commands\BackpackCommand.java
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\DropsManager.java
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\events\BackpackClick.java
 C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\events\DropsPickup.java
 C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\events\MiningListener.java
-C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\KeyRegistry.java
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\holders\BackpackHolder.java
+C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\inventories\BackPackInventory.java
 C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\RegenBlocks.java
 C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\mining\RegenDrops.java
 C:\Users\Gebruiker\Downloads\Custom Mods\Muddify\src\main\java\jortoo\muddify\core\playerdata\events\DataLoad.java

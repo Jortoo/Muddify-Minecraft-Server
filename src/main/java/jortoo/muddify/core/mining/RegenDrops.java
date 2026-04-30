@@ -1,6 +1,8 @@
 package jortoo.muddify.core.mining;
 
 import jortoo.muddify.Muddify;
+import jortoo.muddify.core.KeyRegistry;
+import jortoo.muddify.core.playerdata.PlayerData;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -25,6 +27,14 @@ public class RegenDrops {
         this.dropAmount = dropAmount;
         this.location = location;
         this.registery = registery;
+    }
+
+    public void addToBackPack(PlayerData data, ItemStack drop, int dropAmount) {
+
+        String key = "backpack." + this.drop.getType().name().toLowerCase();
+
+        data.setData(key, data.getInt(key, 0) + dropAmount);
+
     }
 
     public void handleDrops() {
