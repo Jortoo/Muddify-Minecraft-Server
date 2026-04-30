@@ -2,7 +2,9 @@ name: Muddify
 version: '1.0-SNAPSHOT'
 main: jortoo.muddify.Muddify
 api-version: '1.21'
+depend: [PlaceholderAPI]
 commands:
   clearlag:
     permission: staff.clearlag
     aliases: [cl, clag clearl]
+

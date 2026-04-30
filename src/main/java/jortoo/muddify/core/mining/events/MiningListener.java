@@ -4,7 +4,9 @@ import jortoo.muddify.core.mining.KeyRegistry;
 import jortoo.muddify.Muddify;
 import jortoo.muddify.core.mining.RegenBlocks;
 import jortoo.muddify.core.mining.RegenDrops;
+import jortoo.muddify.core.playerdata.PlayerData;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -43,12 +45,17 @@ public class MiningListener implements Listener {
 
         Material material = event.getBlock().getType();
 
+        Player player = event.getPlayer();
+        PlayerData data = Muddify.plugin.getPlayerManager().get(player.getUniqueId());
+
         if (blocksMap.containsKey(material)) {
 
             event.setCancelled(true);
 
             RegenBlocks config = blocksMap.get(material);
             config.handleRegen(event.getBlock(), Muddify.plugin);
+
+            data.setData("stats.mined", data.getInt("stats.mined", 0) + 1);
 
         }
 
