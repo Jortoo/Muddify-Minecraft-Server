@@ -2,7 +2,7 @@ package jortoo.muddify.utils.menu;
 
 import jortoo.muddify.Muddify;
 import jortoo.muddify.utils.text.MetaText;
-import jortoo.muddify.utils.text.MiniText;
+import jortoo.muddify.utils.text.TextHelper;
 import jortoo.muddify.utils.PDC;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class MenuSlots {
 
         ArrayList<Component> lore = new ArrayList<>();
         lore.add(new MetaText("").deser());
-        lore.add(new MetaText(new MiniText("<#FF2700>click to close").create()).deser());
+        lore.add(new MetaText(TextHelper.miniText("<#FF2700>click to close")).deser());
         meta.lore(lore);
 
         PDC pdc = new PDC(meta.getPersistentDataContainer(), Muddify.plugin);

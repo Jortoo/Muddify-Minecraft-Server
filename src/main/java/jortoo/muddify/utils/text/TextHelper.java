@@ -1,15 +1,10 @@
 package jortoo.muddify.utils.text;
 
-public class MiniText {
+public class TextHelper {
 
-    private String text;
 
-    public MiniText(String text) {
-        this.text = text;
-    }
-
-    public String create() {
-        if (this.text == null) return "";
+    public static String miniText(String text) {
+        if (text == null) return "";
 
         String plain = "abcdefghijklmnopqrstuvwxyz";
         String caps  = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ";
@@ -17,7 +12,7 @@ public class MiniText {
         StringBuilder builder = new StringBuilder();
         boolean inTag = false;
 
-        for (char c : this.text.toCharArray()) {
+        for (char c : text.toCharArray()) {
 
             if (c == '<') {
                 inTag = true;
@@ -45,5 +40,27 @@ public class MiniText {
         }
 
         return builder.toString();
+    }
+
+    public static String zebraText(String color1, String color2, String text) {
+
+        StringBuilder builder = new StringBuilder();
+
+        int colorIndex = 0;
+
+        for (char c : text.toCharArray()) {
+            if (c == ' ') {
+                builder.append(c);
+                continue;
+            }
+
+            String activeColor = (colorIndex % 2 == 0) ? color1 : color2;
+            builder.append("<").append(activeColor).append(">").append(c);
+
+            colorIndex++;
+        }
+
+        return builder.toString();
+
     }
 }

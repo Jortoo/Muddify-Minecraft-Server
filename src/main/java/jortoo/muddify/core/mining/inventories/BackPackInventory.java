@@ -6,6 +6,8 @@ import jortoo.muddify.core.mining.holders.BackpackHolder;
 import jortoo.muddify.core.playerdata.PlayerData;
 import jortoo.muddify.core.playerdata.PlayerManager;
 import jortoo.muddify.utils.menu.MenuSlots;
+import jortoo.muddify.utils.text.MetaText;
+import jortoo.muddify.utils.text.TextHelper;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
@@ -73,11 +75,13 @@ public class BackPackInventory {
         ItemStack slot = new ItemStack(mat, 1);
         ItemMeta meta = slot.getItemMeta();
 
-        MiniMessage mm = MiniMessage.miniMessage();
+        String itemName = mat.name().replaceAll("_", " ");
+        String zebraText = TextHelper.zebraText("#0090FF", "#27BEF5", itemName);
+        Component finalname = new MetaText("<bold>" + zebraText).deser();
 
-        meta.displayName(mm.deserialize("<!italic><yellow><bold>" + mat.name().replaceAll("_", " ")));
+        meta.displayName(finalname);
         List<Component> lore = new ArrayList<>();
-        lore.add(mm.deserialize("<!italic><dark_gray>- <white>Amount: <yellow>" + amount));
+        lore.add(new MetaText("<dark_gray>- <white>Amount: <yellow>" + amount).deser());
         meta.lore(lore);
 
         slot.setItemMeta(meta);
