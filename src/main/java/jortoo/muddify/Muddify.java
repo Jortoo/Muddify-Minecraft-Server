@@ -1,6 +1,9 @@
 package jortoo.muddify;
 
 import jortoo.muddify.core.KeyRegistry;
+import jortoo.muddify.core.items.armor.ArmorManager;
+import jortoo.muddify.core.items.commands.GetGearCommand;
+import jortoo.muddify.core.items.events.GearMainMenuClicks;
 import jortoo.muddify.core.mining.DropsManager;
 import jortoo.muddify.core.mining.commands.BackpackCommand;
 import jortoo.muddify.core.mining.events.BackpackClick;
@@ -22,6 +25,8 @@ public final class Muddify extends JavaPlugin {
     private PlayerManager playerManager;
     private DropsManager dropsManager;
 
+    private ArmorManager armorManager;
+
     @Override
     public void onEnable() {
 
@@ -33,15 +38,20 @@ public final class Muddify extends JavaPlugin {
         this.dropsManager = new DropsManager();
         this.dropsManager.loadDrops();
 
+        this.armorManager = new ArmorManager(plugin);
+        this.armorManager.load();
+
         getServer().getPluginManager().registerEvents(new MiningListener(keyRegistery), this);
         getServer().getPluginManager().registerEvents(new DropsPickup(keyRegistery), this);
         getServer().getPluginManager().registerEvents(new DataLoad(), this);
         getServer().getPluginManager().registerEvents(new DataSave(), this);
         getServer().getPluginManager().registerEvents(new BackpackClick(), this);
         getServer().getPluginManager().registerEvents(new MenuListeners(), this);
+        getServer().getPluginManager().registerEvents(new GearMainMenuClicks(), this);
 
         getCommand("clearlag").setExecutor(new ClearLagCommand());
         getCommand("backpack").setExecutor(new BackpackCommand(playerManager));
+        getCommand("gear").setExecutor(new GetGearCommand());
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             playerManager.load(player.getUniqueId());
@@ -55,13 +65,11 @@ public final class Muddify extends JavaPlugin {
 
     }
 
-    public PlayerManager getPlayerManager() {
-        return playerManager;
-    }
+    public PlayerManager getPlayerManager() { return playerManager; }
 
-    public DropsManager getDropsManager() {
-        return dropsManager;
-    }
+    public DropsManager getDropsManager() { return dropsManager; }
+
+    public ArmorManager getArmorManager() { return armorManager; }
 
     @Override
     public void onDisable() {

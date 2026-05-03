@@ -106,4 +106,5 @@ public class ArmorManager {
     public ArmorRegistry getArmor(String id) {
         return armorMap.get(id.toLowerCase());
     }
+    public Map<String, ArmorRegistry> getArmorMap() { return armorMap; }
 }

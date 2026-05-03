@@ -62,7 +62,7 @@ public class BackPackInventory {
 
         }
 
-        inv.setItem(45, invSlot.closeButton());
+        inv.setItem(49, invSlot.closeButton());
 
         player.openInventory(inv);
 

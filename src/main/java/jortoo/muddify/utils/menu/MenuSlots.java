@@ -44,6 +44,9 @@ public class MenuSlots {
         ItemStack item = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = item.getItemMeta();
 
+        PDC pdc = new PDC(meta.getPersistentDataContainer(), Muddify.plugin);
+        pdc.setBoolean("border_glass", true);
+
         meta.setHideTooltip(true);
 
         item.setItemMeta(meta);
