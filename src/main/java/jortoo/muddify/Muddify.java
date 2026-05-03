@@ -11,6 +11,7 @@ import jortoo.muddify.core.playerdata.PlayerManager;
 import jortoo.muddify.core.playerdata.events.DataLoad;
 import jortoo.muddify.core.playerdata.events.DataSave;
 import jortoo.muddify.core.staff.clearlag.commands.ClearLagCommand;
+import jortoo.muddify.utils.menu.MenuListeners;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +38,7 @@ public final class Muddify extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DataLoad(), this);
         getServer().getPluginManager().registerEvents(new DataSave(), this);
         getServer().getPluginManager().registerEvents(new BackpackClick(), this);
+        getServer().getPluginManager().registerEvents(new MenuListeners(), this);
 
         getCommand("clearlag").setExecutor(new ClearLagCommand());
         getCommand("backpack").setExecutor(new BackpackCommand(playerManager));

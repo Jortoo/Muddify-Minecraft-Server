@@ -5,13 +5,13 @@ import jortoo.muddify.core.mining.DropsManager;
 import jortoo.muddify.core.mining.holders.BackpackHolder;
 import jortoo.muddify.core.playerdata.PlayerData;
 import jortoo.muddify.core.playerdata.PlayerManager;
+import jortoo.muddify.utils.menu.MenuSlots;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -50,6 +50,19 @@ public class BackPackInventory {
             iteration++;
 
         }
+
+        slot = 45;
+
+        MenuSlots invSlot = new MenuSlots();
+
+        for (int i = 0; i < 9; i++ ) {
+
+            inv.setItem(slot, invSlot.borderGlass());
+            slot++;
+
+        }
+
+        inv.setItem(45, invSlot.closeButton());
 
         player.openInventory(inv);
 
