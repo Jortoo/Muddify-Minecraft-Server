@@ -1,6 +1,7 @@
 package jortoo.muddify.core.playerdata;
 
 import jortoo.muddify.Muddify;
+import jortoo.muddify.utils.text.TextHelper;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
@@ -41,10 +42,15 @@ public class PlayerDataExpansion extends PlaceholderExpansion {
         if (data == null) return "Loading...";
 
         String key = params.replace("_", ".");
-
         Object value = data.getAllData().get(key);
 
         if (value != null) {
+
+            if (value instanceof Number) {
+
+                return TextHelper.formatNumber(((Number) value).doubleValue());
+            }
+
             return String.valueOf(value);
         }
 

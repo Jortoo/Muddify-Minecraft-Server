@@ -81,7 +81,11 @@ public class BackPackInventory {
 
         meta.displayName(finalname);
         List<Component> lore = new ArrayList<>();
-        lore.add(new MetaText("<dark_gray>- <white>Amount: <yellow>" + amount).deser());
+        lore.add(new MetaText("<dark_gray>Item").deser());
+        lore.add(new MetaText("").deser());
+        lore.add(new MetaText("<#0090FF> ⏹ <white>Amount: <#27BEF5>" + TextHelper.formatNumber(amount)).deser());
+        lore.add(new MetaText("").deser());
+        lore.add(new MetaText(TextHelper.miniText("<#0090FF>Click to do nothing")).deser());
         meta.lore(lore);
 
         slot.setItemMeta(meta);

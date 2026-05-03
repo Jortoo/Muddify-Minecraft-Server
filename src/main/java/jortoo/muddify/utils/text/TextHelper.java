@@ -1,5 +1,9 @@
 package jortoo.muddify.utils.text;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class TextHelper {
 
 
@@ -62,5 +66,12 @@ public class TextHelper {
 
         return builder.toString();
 
+    }
+    public static String formatNumber(double number) {
+
+        DecimalFormatSymbols symbol = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat formatter = new DecimalFormat("#,###", symbol);
+
+        return formatter.format(number);
     }
 }
